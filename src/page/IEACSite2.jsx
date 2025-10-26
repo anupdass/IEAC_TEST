@@ -97,7 +97,7 @@ export default function IEACSite2() {
             />
 
             {/* NAV */}
-            <header className="fixed w-full z-40 bg-white/70 backdrop-blur-md border-b border-white/40 shadow-sm">
+            <header className="fixed w-full z-40  backdrop-blur-md border-b border-white/40 shadow-sm">
                 <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
                     <div className="flex items-center gap-3">
                         <div className="p-2">
@@ -120,16 +120,26 @@ export default function IEACSite2() {
                             <button
                                 key={id}
                                 onClick={() => scrollToId(id)}
-                                className={`text-sm py-2 px-2 rounded-md ${active === id ? "bg-slate-900 text-white" : "text-slate-700 hover:bg-slate-100"}`}>
+                                className={`text-sm py-2 px-2 rounded-md transition-all ${active === id
+                                    ? "bg-gradient-to-r from-[#4f6ef7] via-[#7b5afc] to-[#f15bb5] text-white shadow hover:shadow-lg hover:scale-[1.03]"
+                                    : "text-slate-700 hover:bg-gradient-to-r hover:from-[#4f6ef7] hover:via-[#7b5afc] hover:to-[#f15bb5]  rounded-md transition-all hover:shadow hover:scale-[1.03]"
+                                    }`}
+                            >
                                 {label}
                             </button>
+
+
                         ))}
 
                         <button
                             onClick={() => { setSelectedStream("food"); scrollToId("streams"); }}
-                            className="ml-3 inline-flex items-center gap-2 text-sm bg-emerald-600 text-white px-3 py-2 rounded-md shadow transition-all hover:shadow-lg hover:scale-[1.03]">
+                            className="ml-3 inline-flex items-center gap-2 text-sm leading-tight
+             bg-gradient-to-r from-[#4f6ef7] via-[#7b5afc] to-[#f15bb5] 
+             text-white px-3 py-2 rounded-xl shadow transition-all hover:shadow-lg hover:scale-[1.03]">
                             Apply for EAR
                         </button>
+
+
                     </nav>
 
                     <div className="md:hidden">
@@ -140,12 +150,12 @@ export default function IEACSite2() {
                 </div>
 
                 {mobileOpen && (
-                    <div className="md:hidden bg-white/95 backdrop-blur border-t border-white/40">
+                    <div className="md:hidden  backdrop-blur border-t border-white/40">
                         <div className="px-5 py-4 flex flex-col gap-2">
                             {[["home", "Home"], ["about", "Why IEAC"], ["model", "Operating Model"], ["streams", "Accreditation"], ["bridge", "Bridge Programme"], ["tech", "Tech & API"], ["kpis", "KPIs"], ["roadmap", "Roadmap"], ["contact", "Contact"]].map(([id, label]) => (
                                 <button key={id} onClick={() => scrollToId(id)} className={`text-left py-2 ${active === id ? "font-semibold" : "text-slate-700"}`}>{label}</button>
                             ))}
-                            <button onClick={() => { setSelectedStream("food"); scrollToId("streams") }} className="mt-2 bg-emerald-600 text-white px-4 py-2 rounded-md">Apply for EAR</button>
+                            <button onClick={() => { setSelectedStream("food"); scrollToId("streams") }} className="mt-2 bg-gradient-to-r from-[#4f6ef7] via-[#7b5afc] to-[#f15bb5]  text-white px-4 py-2 rounded-md">Apply for EAR</button>
                         </div>
                     </div>
                 )}
@@ -157,7 +167,13 @@ export default function IEACSite2() {
                     <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-8 items-center">
                         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
                             <p className="inline-flex items-center gap-2 text-emerald-600 font-medium">Global · Edinburgh HQ · Non-Profit</p>
-                            <h2 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight">International Ethical Accreditation Council (IEAC)</h2>
+                            <h2 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight
+               bg-gradient-to-r from-[#4f6ef7] via-[#7b5afc] to-[#f15bb5] 
+               bg-clip-text text-transparent">
+                                International Ethical Accreditation Council (IEAC)
+                            </h2>
+
+
                             <p className="mt-4 text-lg text-slate-700">We monitor, accredit, and remediate—making truth a competitive advantage for companies and a guardrail for consumers.</p>
 
                             <div className="mt-6 flex gap-3">
@@ -203,7 +219,9 @@ export default function IEACSite2() {
                     id="about" className="py-0"
                 >
                     <div className="max-w-6xl mx-auto px-5">
-                        <div className="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-6 shadow-md">
+                        <div className="bg-gradient-to-r from-[#ffdee9] via-[#b5fffc] to-[#e1ffb1] border border-white/60 rounded-2xl p-6 shadow-md backdrop-blur">
+
+
                             <div className="md:flex md:items-start md:gap-8">
                                 <div className="md:flex-1">
                                     <h3 className="text-2xl font-bold">Why IEAC is the Pioneer</h3>
@@ -212,7 +230,7 @@ export default function IEACSite2() {
                                     <ul className="mt-6 grid md:grid-cols-3 gap-4">
                                         <li className="p-4 bg-white/70 backdrop-blur rounded shadow-sm border border-white/60">
                                             <div className="flex items-center gap-3">
-                                                <CheckCircle />
+                                                <CheckCircle color="green" size={50} />
                                                 <div>
                                                     <div className="font-semibold">Monitor</div>
                                                     <div className="text-sm text-slate-500">Always-on surveillance & product integrity checks.</div>
@@ -221,7 +239,7 @@ export default function IEACSite2() {
                                         </li>
                                         <li className="p-4 bg-white/70 backdrop-blur rounded shadow-sm border border-white/60">
                                             <div className="flex items-center gap-3">
-                                                <CheckCircle />
+                                                <CheckCircle color="green" size={50} />
                                                 <div>
                                                     <div className="font-semibold">Accredit</div>
                                                     <div className="text-sm text-slate-500">EAR levels with disclosed criteria & renewal audits.</div>
@@ -230,7 +248,7 @@ export default function IEACSite2() {
                                         </li>
                                         <li className="p-4 bg-white/70 backdrop-blur rounded shadow-sm border border-white/60">
                                             <div className="flex items-center gap-3">
-                                                <CheckCircle />
+                                                <CheckCircle color="green" size={50} />
                                                 <div>
                                                     <div className="font-semibold">Remediate</div>
                                                     <div className="text-sm text-slate-500">Rapid outcomes-based resolution pipeline.</div>
@@ -263,8 +281,8 @@ export default function IEACSite2() {
                     viewport={{ once: false, amount: 0.2 }}
                     id="model" className="py-10"
                 >
-                    <div className="max-w-6xl mx-auto px-5">
-                        <div className="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-6 shadow-md">
+                    <div className="max-w-6xl mx-auto px-5 bg-gradient-to-r from-[#ffdee9] via-[#b5fffc] to-[#e1ffb1] border border-white/60 rounded-2xl p-6 shadow-md backdrop-blur">
+                        <div className="">
                             <h3 className="text-2xl font-bold">Operating Model — The IEAC Tri-Loop</h3>
                             <p className="mt-2 text-slate-600">Monitor → Accredit → Remediate — integrated loops that feed each other.</p>
 
@@ -306,8 +324,8 @@ export default function IEACSite2() {
                     viewport={{ once: false, amount: 0.2 }}
                     id="streams" className="py-10"
                 >
-                    <div className="max-w-6xl mx-auto px-5">
-                        <div className="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-6 shadow-md">
+                    <div className="max-w-6xl mx-auto px-5 bg-gradient-to-r from-[#ffdee9] via-[#b5fffc] to-[#e1ffb1] border border-white/60 rounded-2xl p-6 shadow-md backdrop-blur">
+                        <div className="">
                             <div className="md:flex md:items-start md:gap-8">
                                 <div className="md:w-1/3">
                                     <h3 className="text-2xl font-bold">Accreditation Streams & Criteria</h3>
@@ -389,8 +407,8 @@ export default function IEACSite2() {
                     viewport={{ once: false, amount: 0.2 }}
                     id="bridge" className="py-10"
                 >
-                    <div className="max-w-6xl mx-auto px-5">
-                        <div className="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-6 shadow-md">
+                    <div className="max-w-6xl mx-auto px-5 bg-gradient-to-r from-[#ffdee9] via-[#b5fffc] to-[#e1ffb1] border border-white/60 rounded-2xl p-6 shadow-md backdrop-blur">
+                        <div className="">
                             <h3 className="text-2xl font-bold">The IEAC Bridge Programme</h3>
                             <p className="mt-2 text-slate-600">We don't only sanction; we co-design fixes with companies and consumers.</p>
 
@@ -424,8 +442,8 @@ export default function IEACSite2() {
                     viewport={{ once: false, amount: 0.2 }}
                     id="tech" className="py-10"
                 >
-                    <div className="max-w-6xl mx-auto px-5">
-                        <div className="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-6 shadow-md md:flex md:gap-8">
+                    <div className="max-w-6xl mx-auto px-5 bg-gradient-to-r from-[#ffdee9] via-[#b5fffc] to-[#e1ffb1] border border-white/60 rounded-2xl p-6 shadow-md backdrop-blur">
+                        <div className="">
                             <div className="md:flex-1">
                                 <h3 className="text-2xl font-bold">Technology & Data Architecture</h3>
                                 <p className="mt-2 text-slate-600">Signal Grid, Open Verification Ledger, Public Ratings API — built for transparency and integrability.</p>
@@ -469,8 +487,8 @@ export default function IEACSite2() {
                     viewport={{ once: false, amount: 0.2 }}
                     id="kpis" className="py-10"
                 >
-                    <div className="max-w-6xl mx-auto px-5">
-                        <div className="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-6 shadow-md">
+                    <div className="max-w-6xl mx-auto px-5 bg-gradient-to-r from-[#ffdee9] via-[#b5fffc] to-[#e1ffb1] border border-white/60 rounded-2xl p-6 shadow-md backdrop-blur">
+                        <div className="">
                             <div className="flex items-center justify-between">
                                 <h3 className="text-2xl font-bold">Impact Metrics (KPIs)</h3>
                                 <button onClick={() => setKpisOpen(v => !v)} className="text-sm px-3 py-2 border rounded transition-all hover:shadow-md hover:scale-[1.02]">Toggle details</button>
@@ -508,8 +526,8 @@ export default function IEACSite2() {
                     viewport={{ once: false, amount: 0.2 }}
                     id="roadmap" className="py-10"
                 >
-                    <div className="max-w-6xl mx-auto px-5">
-                        <div className="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-6 shadow-md">
+                    <div className="max-w-6xl mx-auto px-5 bg-gradient-to-r from-[#ffdee9] via-[#b5fffc] to-[#e1ffb1] border border-white/60 rounded-2xl p-6 shadow-md backdrop-blur">
+                        <div className="">
                             <h3 className="text-2xl font-bold">Launch Roadmap — First 180 Days</h3>
                             <div className="mt-4 grid md:grid-cols-3 gap-4">
                                 <div className="p-4 bg-white/70 backdrop-blur rounded border border-white/60 shadow-sm">
